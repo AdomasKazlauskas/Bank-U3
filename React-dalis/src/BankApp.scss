@@ -139,3 +139,20 @@ header img {
   display: flex;
   gap: 10px;
 }
+
+.cookie-manager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cookie-card {
+  margin-top: 20px;
+  width: 300px;
+  background-color: white;
+  color: #1c3041;
+  border-radius: 10px;
+  border: 1px solid #1c3041;
+  font-weight: bold;
+}
