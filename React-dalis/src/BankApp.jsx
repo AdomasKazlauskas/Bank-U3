@@ -11,6 +11,7 @@ import TableTop from "./components/TableTop";
 import { fetchUsers } from "./services/userService";
 // import userService from "./services/userService";
 import Cookie from "./Cookie";
+import LogIn from "./components/LogIn";
 
 function Frame() {
   const [accounts, setAccounts] = useState([]);
@@ -55,6 +56,7 @@ function Frame() {
         totalAmount={getTotalCash(accounts)}
       />
       <Cookie />
+      <LogIn />
       <div className="frame">
         <AddNewAccount
           accounts={accounts}
