@@ -75,7 +75,6 @@ td {
 
 .header-container {
   background-color: #7ebdc2;
-  border-bottom: solid 4px #1c3041;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -99,6 +98,7 @@ td {
 }
 
 header img {
+  cursor: pointer;
   height: 400%;
 }
 
@@ -155,4 +155,37 @@ header img {
   border-radius: 10px;
   border: 1px solid #1c3041;
   font-weight: bold;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #366a6e;
+  color: #fff;
+  z-index: 50;
+}
+
+.nav-menu {
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.nav-link {
+  all: unset;
+  color: #fff;
+  margin-right: 20px;
+  cursor: pointer;
+  &:hover {
+    color: #7ebdc2;
+  }
+}
+
+.nav-link.active {
+  color: #7ebdc2;
 }

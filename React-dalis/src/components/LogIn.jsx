@@ -1,25 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import Button from "./Button";
+import { GlobalContext } from "../context/GlobalContext";
+import { paths } from "../constants/routing";
 
 const LogIn = () => {
+  const { setRoute, setAuthName } = useContext(GlobalContext);
   const [username, setUsername] = useState(null);
   const [error, setError] = useState(null);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3003/login", { withCredentials: true })
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.status === "ok") {
-          setUsername(res.data.name);
-        }
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3003/login", { withCredentials: true })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       if (res.data.status === "ok") {
+  //         setUsername(res.data.name);
+  //       }
+  //     });
+  // }, []);
 
-  const login = (_) => {
+  const login = () => {
     axios
       .post(
         "http://localhost:3003/login",
@@ -33,6 +36,8 @@ const LogIn = () => {
           setName("");
           setPassword("");
           setError(null);
+          setRoute(paths.ACCOUNTS);
+          setAuthName(true);
         } else {
           setError(true);
           setUsername(null);
@@ -44,7 +49,7 @@ const LogIn = () => {
     <div className="cookie-manager">
       <div className="cookie-card">
         <div className="cookie-card-header">
-          {error ? <span>Login Error</span> : <span>Login</span>}
+          <span>{error ? "Login Error" : "Login"}</span>
         </div>
         <div className="cookie-body">
           <h5 className="cookie-name">
@@ -60,7 +65,7 @@ const LogIn = () => {
               type="text"
               value={name}
               onChange={(event) => setName(event.target.value)}
-            ></input>
+            />
           </div>
           <div>
             <label className="card-label">Password</label>
@@ -68,7 +73,7 @@ const LogIn = () => {
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-            ></input>
+            />
           </div>
           <Button label="LOGIN" onClick={login}>
             LOGIN

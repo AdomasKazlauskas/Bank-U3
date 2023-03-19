@@ -34,7 +34,7 @@ export const addCash = async (id, cash) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ cash: parseInt(cash) }),
+    body: JSON.stringify({ cash: Number(cash) }),
   });
 };
 
@@ -45,6 +45,6 @@ export const removeCash = async (id, cash) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ cash: -parseInt(cash) }),
+    body: JSON.stringify({ cash: -Number(cash) }),
   });
 };

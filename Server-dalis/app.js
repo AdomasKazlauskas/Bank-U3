@@ -97,6 +97,13 @@ app.post("/users", (req, res) => {
   });
 });
 
+app.post("/logout", (req, res) => {
+  res.cookie("magicNumberSession", "", { maxAge: -3600 });
+  res.json({
+    status: "logout",
+  });
+});
+
 app.delete("/users/:id", (req, res) => {
   let allData = fs.readFileSync("./data/users.json", "utf8");
   allData = JSON.parse(allData);
@@ -108,7 +115,7 @@ app.delete("/users/:id", (req, res) => {
 
 app.patch("/users/:id/cash", (req, res) => {
   const userId = decodeURI(req.params.id);
-  const amount = parseInt(req.body.cash);
+  const amount = Number(req.body.cash);
   // read the JSON file
   const users = JSON.parse(fs.readFileSync("./data/users.json", "utf8"));
 

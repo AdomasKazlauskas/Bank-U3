@@ -51,12 +51,6 @@ const AccountListItem = ({ account, handlePopUp, setStatus }) => {
       setStatus("error");
       alert("Error updating balance");
     }
-
-    // const updatedAccounts = accounts.map((account) =>
-    //   account.id === id ? { ...account, cash: account.cash - amount } : account
-    // );
-    // setAccounts(updatedAccounts);
-    // writeToLocalStorage("accounts", updatedAccounts);
     setAmount("");
   };
 
