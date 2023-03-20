@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "./Button";
 import { GlobalContext } from "../context/GlobalContext";
 import { paths } from "../constants/routing";
+import oakLogo from "../assets/oakLogo.png";
 
 const LogIn = () => {
   const { setRoute, setAuthName } = useContext(GlobalContext);
@@ -46,29 +47,30 @@ const LogIn = () => {
   };
 
   return (
-    <div className="cookie-manager">
-      <div className="cookie-card">
-        <div className="cookie-card-header">
+    <div className="login-manager">
+      <div className="login-card">
+        <div className="login-card-header">
           <span>{error ? "Login Error" : "Login"}</span>
         </div>
-        <div className="cookie-body">
-          <h5 className="cookie-name">
+        <div className="login-body">
+          <h5 className="login-name">
             {username ? (
-              <span>Hello, {username}</span>
+              <span>Hello, {username}!</span>
             ) : (
-              <span>Hello, guest</span>
+              <span>Hello, guest!</span>
             )}
           </h5>
-          <div>
-            <label className="card-label">Name</label>
+          <div className="login-credentials">
+            <label className="login-label">Name</label>
             <input
+              className="name-input"
               type="text"
               value={name}
               onChange={(event) => setName(event.target.value)}
             />
           </div>
-          <div>
-            <label className="card-label">Password</label>
+          <div className="login-credentials">
+            <label className="login-label">Password</label>
             <input
               type="password"
               value={password}

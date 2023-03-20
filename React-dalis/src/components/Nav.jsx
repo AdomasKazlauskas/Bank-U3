@@ -34,7 +34,7 @@ const Nav = () => {
           {authName ? (
             <>
               <span>
-                <b>{authName}</b>
+                <b className="nav-user">{authName}</b>
               </span>
               <button className="nav-link" onClick={logOut}>
                 LogOut
