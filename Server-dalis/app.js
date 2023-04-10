@@ -38,11 +38,11 @@ app.post("/login", (req, res) => {
   const name = req.body.name;
   const password = md5(req.body.password);
 
-  const checkUser = logins.find(
+  const checkUser = logins.filter(
     (l) => l.name === name && l.password === password
   );
   if (checkUser) {
-    const sessionId = md5(uuidv4()); //Turi buti normali kriptografija
+    const sessionId = md5(uuidv4());
     checkUser.session = sessionId;
 
     fs.writeFileSync("./data/logins.json", JSON.stringify(logins), "utf8");
